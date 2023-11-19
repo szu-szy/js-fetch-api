@@ -2,6 +2,11 @@
 const fetchButton = document.querySelector("#fetch-btn");
 const form = document.querySelector("#form-user");
 const inputForm = document.querySelector("#name");
+const pageBtn1 = document.querySelector("#page-btn-1");
+const pageBtn2 = document.querySelector("#page-btn-2");
+const pageBtn3 = document.querySelector("#page-btn-3");
+
+const LIMIT_ITEMS = 10;
 
 // roznica miedzy == a ===
 // template string -> przed: "" + "", po: `${zmienna} napis`
@@ -59,6 +64,21 @@ const getUser = async (e) => {
     }
   }
 };
+// zadanie 3
+const getUsersByPage = async (skipItems) => {
+  try {
+    const response = await fetch(
+      `https://dummyjson.com/products?limit=${LIMIT_ITEMS}&skip=${skipItems}`
+    );
+
+    if (!response.ok) throw new Error("Ups!");
+
+    const { products } = await response.json();
+    console.log(products);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // wywolanie funkcji
 // fetchData();
@@ -72,3 +92,6 @@ const getUser = async (e) => {
 // dodawanie event listenerow
 fetchButton.addEventListener("click", getUsers);
 form.addEventListener("submit", getUser);
+pageBtn1.addEventListener("click", () => getUsersByPage(0));
+pageBtn2.addEventListener("click", () => getUsersByPage(10));
+pageBtn3.addEventListener("click", () => getUsersByPage(20));
