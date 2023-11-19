@@ -80,6 +80,21 @@ const addProduct = async () => {
   }
 };
 
+const deleteProduct = async () => {
+  try {
+    const response = await fetch("https://dummyjson.com/products/1", {
+      method: "DELETE",
+    });
+
+    if (!response.ok) throw new Error("Ups!");
+
+    const { title } = await response.json();
+    alert(`pomyslnie usunieto produkt: ${title}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // zadanie 1
 const getUsers = async () => {
   try {
@@ -155,6 +170,7 @@ const updateUser = async (e) => {
 // fetchData();
 // getUsers();
 // updateProduct();
+deleteProduct();
 
 // jakie mamy eventy w js
 // click - zazwyczaj na przyciskach - mousedown // mouseup
