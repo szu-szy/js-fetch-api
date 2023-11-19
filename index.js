@@ -1,7 +1,10 @@
 // deklaracja zmiennych
-const fetchButton = document.querySelector("#fetchButton");
-const form = document.querySelector("#form");
+const fetchButton = document.querySelector("#fetch-btn");
+const form = document.querySelector("#form-user");
+const inputForm = document.querySelector("#name");
 
+// roznica miedzy == a ===
+// template string -> przed: "" + "", po: `${zmienna} napis`
 // deklaracja funkcji
 const fetchData = async () => {
   try {
@@ -20,8 +23,29 @@ const fetchData = async () => {
   }
 };
 
+const getFormData = (event) => {
+  event.preventDefault();
+  const { value } = inputForm;
+  console.log(value < 100);
+};
+
+// zadanie 1
+const getUsers = async () => {
+  try {
+    const response = await fetch("https://dummyjson.com/users");
+
+    if (!response.ok) throw new Error("Something goes wrong!");
+
+    const dataJSON = await response.json();
+    console.log(dataJSON.users);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // wywolanie funkcji
-fetchData();
+// fetchData();
+// getUsers();
 
 // jakie mamy eventy w js
 // click - zazwyczaj na przyciskach - mousedown // mouseup
@@ -29,4 +53,5 @@ fetchData();
 // submit - form - wywolane przez button o typie submit
 //
 // dodawanie event listenerow
-// form.addEventListener('submit', () => {})
+fetchButton.addEventListener("click", getUsers);
+form.addEventListener("submit", getFormData);
