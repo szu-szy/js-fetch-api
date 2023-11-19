@@ -42,6 +42,23 @@ const getUsers = async () => {
     console.log(error);
   }
 };
+// zadanie 2
+const getUser = async (e) => {
+  e.preventDefault();
+  const { value: userID } = inputForm;
+  if (userID >= 0 && userID <= 100) {
+    try {
+      const response = await fetch(`https://dummyjson.com/users/${userID}`);
+
+      if (!response.ok) throw new Error("Something goes wrong!");
+
+      const { firstName, lastName } = await response.json();
+      console.log(firstName, lastName);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
 
 // wywolanie funkcji
 // fetchData();
@@ -54,4 +71,4 @@ const getUsers = async () => {
 //
 // dodawanie event listenerow
 fetchButton.addEventListener("click", getUsers);
-form.addEventListener("submit", getFormData);
+form.addEventListener("submit", getUser);

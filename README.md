@@ -11,3 +11,11 @@
 - stworz funkcje do pobierania pojedynczego uzytkownika
 - przypisz do formularza utworzona funkcje
 - po wcisnieciu przycisku submit powinno nam wyswietlic uzytkownika w konsoli
+
+## Zadanie 3
+
+- stworz 3 przyciski "Strona 1", "strona 2", "strona 3"
+- stworz 1 funkcje z przyjmowanym parametrem "page", gdzie limit jest ustalony na sztywno do zmiennej ITEM_LIMIT
+- przypisz eventy do przyciskow z html
+- kazdy z tych przyciskow okresla odpowiednio elementy 1-10, 11-20, 21-30
+- po wcisnieciu odpowiedniego przycisku powinno wyswietlic nam okreslone elementy
