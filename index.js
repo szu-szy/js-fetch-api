@@ -34,6 +34,27 @@ const getFormData = (event) => {
   console.log(value < 100);
 };
 
+const updateProduct = async () => {
+  try {
+    const response = await fetch("https://dummyjson.com/products/1", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: "iPhone Galaxy +1",
+      }),
+    });
+
+    if (!response.ok) throw new Error("Ups!");
+
+    const product = await response.json();
+    console.log(product);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+updateProduct();
+
 // zadanie 1
 const getUsers = async () => {
   try {
