@@ -19,3 +19,11 @@
 - przypisz eventy do przyciskow z html
 - kazdy z tych przyciskow okresla odpowiednio elementy 1-10, 11-20, 21-30
 - po wcisnieciu odpowiedniego przycisku powinno wyswietlic nam okreslone elementy
+
+## zadanie 4
+
+- stworz formularz ktory bedzie aktualizowal firstName oraz lastName uzytkownika
+- formularz bedzie zawieral 3 inputy (okresla id, imie, nazwisko) oraz przycisk
+- input od id powinien byc sprawdzany (min=1, max=100)
+- napisz funkcje ktora pobiera dane z formularza oraz aktualizuje wybranego uzytkownika
+- przypisz funkcje jako event listener do formularza
