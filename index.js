@@ -11,6 +11,8 @@ const inputLastName = document.querySelector("#lastName");
 const inputUserID = document.querySelector("#userID");
 const userForm = document.querySelector("#update-user-form");
 
+const newProductBtn = document.querySelector("#new-product-btn");
+
 const LIMIT_ITEMS = 10;
 
 // roznica miedzy == a ===
@@ -53,6 +55,26 @@ const updateProduct = async () => {
 
     const product = await response.json();
     console.log(product);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const addProduct = async () => {
+  const newProduct = {
+    title: "new title pencil",
+  };
+  try {
+    const response = await fetch("https://dummyjson.com/products/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProduct),
+    });
+
+    if (!response.ok) throw new Error("ups!");
+
+    const dataJSON = await response.json();
+    alert(`udalo sie stworzyc produkt ${dataJSON.title}!!!`);
   } catch (error) {
     console.log(error);
   }
@@ -146,3 +168,10 @@ pageBtn1.addEventListener("click", () => getUsersByPage(0));
 pageBtn2.addEventListener("click", () => getUsersByPage(10));
 pageBtn3.addEventListener("click", () => getUsersByPage(20));
 userForm.addEventListener("submit", updateUser);
+newProductBtn.addEventListener("click", addProduct);
+
+// czym sa wartosci truthy i falsy
+// wartosci falsy: null, 0, undefined, '', NaN, false
+// wartosci truthy: 1, true,
+
+// [] -> [].length

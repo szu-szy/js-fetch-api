@@ -27,3 +27,11 @@
 - input od id powinien byc sprawdzany (min=1, max=100)
 - napisz funkcje ktora pobiera dane z formularza oraz aktualizuje wybranego uzytkownika
 - przypisz funkcje jako event listener do formularza
+
+## Zadanie 5
+
+- stworz formularz do utworzenia nowego uzytkownika
+- stworz funkcje ktora bedzie pobierac pola z formularza i tworzyc na ich bazie nowego uzytkownika w bazie
+- po utworzeniu dajmy alert dla uzytkownika o nowym produkcie
+- pamietamy o sprawdzeniu czy dane nie sa puste
+- dodajemy event listener do formularza z referencja funkcji
